@@ -1,0 +1,59 @@
+<form enctype="multipart/form-data" method="post">
+
+    {% csrf_token %} <!--IDENTIFICA SI EL FORMULARIO PERTENECE A NUESTRA APLICACIÓN-->
+  
+  
+    {% for campo in formulario %} <!--VARIABLE FORMULARIO EN FUNCIÓN CREAR-->
+    <div class="mb-3">
+        <label for="" class="form-label">{{campo.label}}</label> <!--obtiene los nombres de los campos de verbose.name en models.py-->
+
+         <!--trae la imagen al formulario de edición para que se visualice antes de cambiarla por otra-->
+        {%if campo.field.widget.input_type == 'file' and campo.value   %}    <!--linea 23, si no hay información, lo deja vacío-->
+       
+        <br>
+        <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" width="100" alt="">
+        {% endif %}
+        <!--selector de imagen-->
+        <input 
+        type="{{ campo.field.widget.input_type}}" 
+        class="form-control" 
+        name="{{campo.name}}" 
+        id="" 
+        aria-describedby="helpId" 
+        placeholder="{{campo.label}}"  
+        value="{{ campo.value|default:'' }}"
+              
+
+
+
+        />
+       
+    </div>
+    <div class="col-12 help-text">
+        {{campo.errors}}  <!--informa que los campos deben ser completados, así todos los datos son obligatorios para cargar-->
+
+    </div>
+
+  {% endfor %}
+
+<input
+    name=""
+    id=""
+    class="btn btn-success"
+    type="submit"
+    value="Enviar informacion"
+/>
+<a
+    name=""
+    id=""
+    class="btn btn-primary"
+    href= "{% url 'administrador' %}"
+    role="button"
+    >Cancelar</a
+>
+
+
+
+
+
+</form>

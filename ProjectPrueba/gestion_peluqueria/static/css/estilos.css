@@ -832,3 +832,93 @@ textarea {
     font-size: 2.2rem;
     margin-top: 10%;
 }
+
+
+/* ************** Carrito compras***************** */
+
+.carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:  #121233;
+    padding: 20px;
+    height: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.carrito-titulo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: white; /* Color negro para el texto */
+    margin-bottom: 20px;
+}
+
+.carrito-titulo i {
+    margin-right: 10px;
+}
+
+.carrito-contenido {
+    width: 100%;
+    max-width: 600px;
+    
+}
+
+.carrito-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.carrito-tabla th, .carrito-tabla td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white; /* Color negro para el contenido */
+}
+
+.carrito-tabla th {
+    background-color: #424141;
+}
+
+.bi-arrow-up-short{
+    background-color: #0d0e0d;
+    font-size: 15px;
+    color:#fdfdfd;
+     cursor: pointer;
+}
+
+.bi-arrow-down-short{
+    cursor: pointer;
+    background-color: #0d0e0d;
+    font-size: 15px;
+    color:#fdfdfd;
+    margin-top: 15px;
+}
+.bi-trash{
+    cursor: pointer;
+    background-color: #ce0404;
+    font-size: 20px;
+    color: rgb(255, 237, 237);
+    float: right;
+    margin-right: 20px; /* Ajusta la posición hacia la derecha en 10 píxeles */
+    margin-top: -40px; /* Ajusta la posición hacia arriba en 10 píxeles (ajusta según sea necesario) */
+}
+
+
+.enlace-tienda {
+    display: block;
+    margin: 10px auto;
+    border: none;
+    background-color: black;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.total{
+    color:white;
+}

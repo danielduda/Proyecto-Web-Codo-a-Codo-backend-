@@ -1,0 +1,65 @@
+{% extends 'gestion_peluqueria/base.html' %}
+{% load static %}
+{% block titulo %}Carrito-tienda{% endblock %}
+
+
+{% block content %}
+
+
+<section class="carrito">
+    <h2 class="carrito-titulo">
+        <i class="bi bi-cart"></i> Carrito
+    </h2>
+    <button class="enlace-tienda"><a href="{% url 'tienda' %}">Volver a la tienda</a></button>
+    <div class="carrito-contenido">
+        <table class="carrito-tabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="carrito-items" >
+                {% for item in carrito %}
+                <tr>
+                    <td>{{ item.producto.nombre }}</td>
+                    <td>${{ item.producto.precio }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>
+                        <form action="{% url 'actualizar_carrito' item.producto.id item.cantidad|add:1 %}"
+                            method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="bi bi-arrow-up-short"></button>
+                        </form>
+                        <form action="{% url 'actualizar_carrito' item.producto.id item.cantidad|add:-1 %}"
+                            method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="bi bi-arrow-down-short"></button>
+                        </form>
+                        <form action="{% url 'eliminar_del_carrito' item.producto.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" title="eliminar" class="bi bi-trash"></button>
+                        </form>
+                    </td>
+
+                </tr>
+                
+                {% endfor %}
+                
+            </tbody>
+            
+        </table>
+         <button id="pagar-boton" data-total="{{ total_carrito }}" class="enlace-tienda"><a href="{% url 'compra'%}">Pagar</a></button>
+    </div>
+</section>       
+
+        {% endblock %}
+
+        
+        {% block scripts %}
+        <script src="{% static 'js/compra.js' %}"></script>
+        {% endblock %}
+    

@@ -1,0 +1,24 @@
+{% extends 'administrador/baseadmin.html' %}
+{% load static %}
+{% block titulo %} Edición{% endblock %}
+
+
+
+
+{% block contenido %} 
+
+   
+    
+<div class="card">
+    <div class="card-header">Editar información producto</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del producto</h4>
+       
+        {%  include 'administrador/form.html'  %}
+
+
+    </div>
+
+{% endblock %}
+
+

@@ -7,3 +7,6 @@ document.getElementById('enlace').addEventListener('click', function(event) {
       window.location.href = "{% url 'home' %}";
     }, 1000); 
   });
+
+
+  

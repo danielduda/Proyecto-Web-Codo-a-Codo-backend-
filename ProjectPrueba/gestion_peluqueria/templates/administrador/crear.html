@@ -1,0 +1,24 @@
+{% extends 'administrador/baseadmin.html' %}
+{% load static %}
+{% block titulo %} Ingresar {% endblock %}
+
+
+
+
+{% block contenido %} 
+
+    
+<div class="card">
+    <div class="card-header">Ingresar producto</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del producto</h4>
+       
+        {%  include 'administrador/form.html'  %}
+
+
+    </div>
+    
+
+{% endblock %}
+
+
