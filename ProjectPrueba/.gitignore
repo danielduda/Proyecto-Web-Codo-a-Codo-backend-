@@ -6,23 +6,3 @@ __pycache__/
 EV/
 venv/
 env/
-
-# Archivos de configuración local (modifica según tu configuración)
-local_settings.py
-
-# Archivos de logs
-*.log
-
-# Archivos de base de datos
-db.sqlite3
-
-# Archivos de media (uploads)
-media/
-
-# Carpeta de archivos estáticos compilados
-staticfiles/
-
-# Archivos de sesión de Django
-*.session
-
-#
